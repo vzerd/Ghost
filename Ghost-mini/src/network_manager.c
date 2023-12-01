@@ -62,6 +62,11 @@ int initNetworkModule(){
     serv_addr.sin_family = AF_INET;
 	serv_addr.sin_port = htons(PORT);
 
+    int optVal = 1;
+    if(setsockopt(miniSockt, SOL_SOCKET, SO_KEEPALIVE, &optVal, sizeof(optVal)) < 0) {
+      return -1;
+    }
+
     if(inet_pton(AF_INET, IPbuffer, &serv_addr.sin_addr) <= 0){
         return -1;
 	}
@@ -95,7 +100,7 @@ int sendData(char *data, int socCloseStts){
 /*
 * Func name:        readData
 * Parameter(s):     none
-* Return type:      char
+* Return type:      char pointer
 * Utility:          To read data from 'ghost-node'.
 */
 char* readData(){

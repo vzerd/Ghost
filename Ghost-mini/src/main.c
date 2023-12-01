@@ -77,7 +77,7 @@ int main(){
 
         memset(data, '\0', sizeof(data));
 
-        if(readData() == "x"){
+        if(strcmp(readData(), "x") == 0){
             
             snprintf(data, sizeof(data), "%s %s", containerID, "| mini > (x_x)");
             sendData(data, 1);
