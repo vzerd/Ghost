@@ -154,4 +154,4 @@ if __name__ == '__main__':
     clear_screen(1) # clear screen before start
     set_config_info() # setting configuration information
     display_config_info() # displaying configuration information
-    serve(app, host='0.0.0.0', port=node_port) # start serving the application with 0.0.0.0:8096
+    serve(app, host='0.0.0.0', port=node_port) # start serving the application with 0.0.0.0
